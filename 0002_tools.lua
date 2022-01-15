@@ -1,5 +1,12 @@
--- in tools.lua
+-- file <- "0002_tools.lua-- in tools.lua"
+--
+--
+--
+-- 14JAN 2022  - NOT WORKING
+-- REF:  https://teukka.tech/luanvim.html
 -- scratch buffer
+--
+local api = vim.api
 local M = {}
 function M.makeScratch()
   api.nvim_command('enew')  -- :enew
@@ -9,17 +16,9 @@ function M.makeScratch()
 end
 return M
 
-
--- to run this, ie create the function
--- :luafile %
-
--- Create the command
--- command! Scratch lua require'tools'.makeScratch()
--- :Scratch   to run
-
-
--- put this file in runtimepath where vim will find .lua files
--- To run this function:    
--- " in init.vim
+--  To run:
 --
--- command! Scratch lua require'tools'.makeScratch()
+-- :command! Scratch lua
+-- require'~/code/lua_project/0002_tools.lua'makeScratch()
+--
+-- :Scratch

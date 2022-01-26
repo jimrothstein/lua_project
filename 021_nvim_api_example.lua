@@ -21,6 +21,13 @@ end
 f(1,2)
 f(1)
 
+local M = {}
+
+function M.sayHello() 
+    print("say hello")
+end
+
+return M
 
 ---------------------------
 -- FUNCTION with using opts

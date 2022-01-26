@@ -2,6 +2,26 @@
 ------------------------
 --  useful commands
 ------------------------
+--
+-- :7source  will run line 7 of this code (do not prefix with :lua)
+vim.o.laststatus = 2
+
+-- default is 0; 9 every autocmd -  BE CAREFUL9 every autocmd -  BE
+vim.o.verbose=1
+
+--  THESE statements may be sourced directly, using
+--  :.+1,+4source
+vim.api.nvim_set_option('laststatus', 3)
+print(vim.api.nvim_get_option('laststatus'))
+vim.api.nvim_set_option('laststatus', 2)
+print(vim.api.nvim_get_option('laststatus'))
+
+
+--  print directory
+--  :h expand   :echo expand('%')
+local cwd = vim.fn.expand('%:h:p')
+print(vim.inspect(cwd))
+
 -- :h api.txt
 --
 --  check option
@@ -9,7 +29,8 @@ lua print(vim.inspect(vim.opt.autowrite))
 lua print(vim.inspect(vim.v.progname))          -- nvim
 lua print(vim.inspect(vim.v.progpath))          -- 
 lua print(vim.inspect(vim.opt.backup))
-
+print(vim.inspect(vim.opt.backup))
+print(vim.opt.backup)
 
 --
 -- global:
@@ -33,6 +54,19 @@ vim.opt.wildignore = {'*/cache/*,*/tmp/*'}
 lua vim.o.laststatus = 2
 lua vim.api.nvim_set_option('laststatus', 2)
 
+
+
+---------------
+-- set function
+---------------
+local f = function(a,b)
+    print("a = ", a)
+    print("b = ", b)
+end
+
+f(1,2)
+f(1)
+--
 ---------------------------
 -- Simple IF_THEN
 ---------------------------
@@ -58,7 +92,6 @@ print(vim.api.nvim_eval('v:null')) -- nil
 
 -- works, creates a new file
 -- vim.api.nvim_command('new')
---
 --
 --
 -- Alias:    vim.cmd  =  vim.cmd('buffers')  execute multiple lines of code??

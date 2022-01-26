@@ -1,0 +1,48 @@
+-- file <- "simple_function.lua"
+-----------------------
+--  SIMPLE LUA FUNCTION
+-----------------------
+--  To run this function
+--  :.+1,+7source
+local f = function(a,b)
+		print("hi")
+    print(vim.api.nvim_get_option('laststatus'))
+    vim.cmd('echo 42')
+end
+f(1,2)
+
+--     vim.cmd([[
+--         'echo A'
+--         'echo B'
+--         ]])
+--
+    print(vim.inspect(vim.opt.formatoptions:get()))
+    print(vim.bo.comments)
+    end
+
+f(1,2)
+-- f(1)
+
+
+--  fold is buffer? specific (default is close)
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+--  another simple
+------------------
+local function blah() 
+    print "Hello World\n"
+end
+------------------
+
+-------------------
+-- SOURCE from modules.lua
+-------------------
+local M = {}
+M = require 'modules'
+
+M.foo()
+M.sayHello()
+M.func_opts {x="a", y="b"}
+
+

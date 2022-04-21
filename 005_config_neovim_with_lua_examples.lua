@@ -6,6 +6,7 @@
 -- :7source  will run line 7 of this code (do not prefix with :lua)
 vim.o.laststatus = 2
 
+
 -- default is 0; 9 every autocmd -  BE CAREFUL9 every autocmd -  BE
 vim.o.verbose=1
 

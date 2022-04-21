@@ -59,3 +59,42 @@ print(vim.api.nvim_eval('v:null')) -- nil
 --
 -- Alias:    vim.cmd  =  vim.cmd('buffers')  execute multiple lines of code??
 -- vim.cmd([[%s/\Vbar/bar/g]])
+--
+------------------------------
+-- VIM.API.NVIM_BUF_ATTACH()
+-- :h api.txt
+----------------------------
+--[[ from docs:
+                    {opts}         Optional parameters.
+                                   • on_lines: Lua callback invoked on change.
+                                     Return `true` to detach. Args:
+                                     • the string "lines"
+                                     • buffer handle
+                                     • b:changedtick
+                                     • first line that changed (zero-indexed)
+                                     • last line that was changed
+                                     • last line in the updated range
+                                     • byte count of previous contents
+                                     • deleted_codepoints (if `utf_sizes` is
+                                       true)
+                                     • deleted_codeunits (if `utf_sizes` is
+                                       true)
+--]]
+--
+events = {}
+vim.api.nvim_buf_attach(0, false,  {
+											on_lines = function()
+											table.insert.events
+											end
+											}
+											)
+print(vim.inspect(events))
+											
+
+											
+
+	
+
+one
+tow
+

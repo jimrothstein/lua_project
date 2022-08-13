@@ -5,10 +5,11 @@
 ------------------------
 --  useful commands
 ------------------------
+--	ERROR:   unhappy about module `notify`
 --  To RUN this file
 --  :luafile %
 --
---  :lua print(_VERSION)
+--  :lua print(_VERSION)  #5.1
 --
 --
 --

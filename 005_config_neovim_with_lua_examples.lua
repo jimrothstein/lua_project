@@ -7,6 +7,13 @@
 vim.o.laststatus = 2
 
 
+--  THESE statements may be sourced directly, using
+--  :.+1,+4source
+vim.api.nvim_set_option('laststatus', 3)
+print(vim.api.nvim_get_option('laststatus'))
+vim.api.nvim_set_option('laststatus', 2)
+print(vim.api.nvim_get_option('laststatus'))
+
 -- default is 0; 9 every autocmd -  BE CAREFUL9 every autocmd -  BE
 vim.o.verbose=1
 

@@ -31,3 +31,9 @@ M.sayHello()
 M.func_opts {x="a", y="b"}
 
 
+--	EXAMPLE:   run this at vim cmd line
+--	:w
+--	hhh
+--	run at neovim command line
+lua for _, i in pairs({'hello', 'world', 1, 2}) do print(i) end
+lua for _, i in pairs({'hello', 'world'}) do print(i) end

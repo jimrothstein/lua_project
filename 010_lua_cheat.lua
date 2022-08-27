@@ -86,11 +86,22 @@ lua print(vim.api.nvim_get_option('laststatus'))
 ---------------------------
 lua if (vim.v.progname == 'nvim') then print('hi') end  -- nvim
 
+
+---------------------------
+-- PURPOSE:		Run lua expression at vim command line
+--
+-- EXAMPLE:   :lua <expression with lua>
+--
+-- EXAMPLE		
+--						:lua if (vim.fn.has('nvim')) then print('YES, has nvim') end  
+---------------------------
+--
 -- invoke function vim.fn.has
 :h vim.fn
 
 -- To run at command line, cut &paste (with brackets: just lua comment)
 --
+--	SIMILAR:
 --[[
 lua if (vim.fn.has('nvim-0.5')) then print('v 0.5') end  -- 0.5
 lua if (vim.fn.has('nvim-0.5') == 1) then print('v 0.5') end  -- 0.5

@@ -37,3 +37,6 @@ M.func_opts {x="a", y="b"}
 --	run at neovim command line
 lua for _, i in pairs({'hello', 'world', 1, 2}) do print(i) end
 lua for _, i in pairs({'hello', 'world'}) do print(i) end
+
+--	:a,bsource
+for _, i in pairs({'hello', 'world'}) do print(i) end

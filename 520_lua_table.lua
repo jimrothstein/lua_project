@@ -1,4 +1,10 @@
---	PURPOSE:	Play with tables and related functions
+--
+---------------------------------------------
+--	PURPOSE:	LUA as language:
+--					Play with tables and related functions
+--
+--file <- "020_lua_table.lua"
+---------------------------------------------
 --
 --
 --	Chapter 19

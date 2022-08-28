@@ -1,4 +1,25 @@
 -- print a lua object in human form
+--
+--
+------------------------------------
+--		SIMPLEST
+--		:A,Bsource
+--
+t = {}
+t = {"one", "two"}
+
+for _, i in pairs(t) do print(i) end
+------------------------------------
+
+t = {}
+t = {A = "one", B = "two"}
+
+for _, i in pairs(t) do print(i) end
+------------------------------------
+--		NeOVIM way?
+--
+----
+--
  local hl_normal = vim.pretty_print(vim.api.nvim_get_hl_by_name("Normal", true))
 
 -- :4source

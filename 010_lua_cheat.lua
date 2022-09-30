@@ -28,8 +28,9 @@ print(win)
 --	filename of current buf
 local buf = vim.api.nvim_buf_get_name(0)
 print(buf)
---	but this fails
-local ftype = vim.filetype.match({ name= buf })
+--	but this fails:  related to neovim 0.72 ?  (I can not upgrade - see tech
+--	notes)
+local ftype = vim.filetype.match({ buf = 2 })
 print(ftype)
 ----------
 --  :luado <lua expr>

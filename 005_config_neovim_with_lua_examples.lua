@@ -1,4 +1,17 @@
 
+
+------------------------
+-- NOTES
+------------------------
+-- vim.api.X      search for X in :h api.txt
+--   ex:
+--   vim.api.nvim_set_option('laststatus', 3)              -- set laststatus=3
+--   in api.txt search for /nvim_set_option
+--
+-- vim.fn.X
+--   search :h lua.txt
+--
+--
 ------------------------
 --  useful commands
 ------------------------
@@ -9,7 +22,7 @@ vim.o.laststatus = 2
 
 --  THESE statements may be sourced directly, using
 --  :.+1,+4source
-vim.api.nvim_set_option('laststatus', 3)
+vim.api.nvim_set_option('laststatus', 3)              -- set laststatus=3
 print(vim.api.nvim_get_option('laststatus'))
 vim.api.nvim_set_option('laststatus', 2)
 print(vim.api.nvim_get_option('laststatus'))
@@ -65,7 +78,7 @@ lua vim.api.nvim_set_option('laststatus', 2)
 
 
 ---------------
--- set function
+-- function
 ---------------
 local f = function(a,b)
     print("a = ", a)
@@ -74,7 +87,6 @@ end
 
 f(1,2)
 f(1)
---
 ---------------------------
 -- Simple IF_THEN
 ---------------------------
@@ -87,20 +99,56 @@ lua if (vim.fn.has('nvim-0.5') == 1) then print('v 0.5') end  -- 0.5
 
 ----------------------------------------
 --
---
---
---
+----------------------------------------
 -- print lua objects, with vim.inspect()
 ----------------------------------------
 print(vim.api.nvim_eval('1 + 1')) -- 2
 -- print(vim.inspect(vim.api.nvim_eval('[1, 2, 3]'))) -- { 1, 2, 3 }
 -- print(vim.inspect(vim.api.nvim_eval('{"bar": "bar", "baz": "qux"}'))) -- { baz = "qux", bar = "bar" }
+--
+--
+----------------------------------------
+-- eval
+----------------------------------------
 print(vim.api.nvim_eval('v:true')) -- true
 print(vim.api.nvim_eval('v:null')) -- nil
 
--- works, creates a new file
--- vim.api.nvim_command('new')
+----------------------------------------
+-- runs ex command 
+----------------------------------------
+vim.api.nvim_command('ls')
 --
 --
+-----------------------------------------------------------------------------
 -- Alias:    vim.cmd  =  vim.cmd('buffers')  execute multiple lines of code??
+-----------------------------------------------------------------------------
 -- vim.cmd([[%s/\Vbar/bar/g]])
+--
+-----------------------------------------------------------------------------
+-- print table (:n,msource)
+-----------------------------------------------------------------------------
+--
+local data = {   a = 1,
+	b=2,
+	c=3}
+
+for key, value in pairs(data) do
+  print('\n', key, value)
+	print(key)
+	print(value)
+end
+
+
+-----------------------------------------------------------------------------
+-- runtime directories
+-- vim.api.nvim_list_runtime_paths())
+-----------------------------------------------------------------------------
+p = vim.api.nvim_list_runtime_paths()
+for i,j in pairs(p) do
+  print(i, j)
+end
+
+-----------------------------------------------------------------------------
+--  name of buffer
+-----------------------------------------------------------------------------
+print(vim.inspect(vim.api.nvim_buf_get_name(0)))

@@ -19,6 +19,10 @@
 -- :7source  will run line 7 of this code (do not prefix with :lua)
 vim.o.laststatus = 2
 
+-----------------------------------
+-- name of buffer (= filename?)
+print(vim.api.nvim_buf_get_name(0))
+-----------------------------------
 
 --  THESE statements may be sourced directly, using
 --  :.+1,+4source
@@ -117,7 +121,7 @@ print(vim.api.nvim_eval('v:null')) -- nil
 -- runs ex command 
 ----------------------------------------
 vim.api.nvim_command('ls')
---
+
 --
 -----------------------------------------------------------------------------
 -- Alias:    vim.cmd  =  vim.cmd('buffers')  execute multiple lines of code??

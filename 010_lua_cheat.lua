@@ -3,11 +3,15 @@
 --	PURPOSE:  Collection of examples.
 --	USAGE:    :a,bsource  where a,b are line numbers to source
 ------------------------
---  useful commands
+--  useful commands  (:grep 'vim.' %)
 ------------------------
 -- :h api.txt
 -- :scriptnames   -- all loaded .vim and .lua
 
+--  TODO:
+--  vim.api.nvim_echo needs more work
+--
+--
 --
 ----------
 --  SOURCE
@@ -146,3 +150,30 @@ print(vim.api.nvim_eval('v:null')) -- nil
 --
 -- Alias:    vim.cmd  =  vim.cmd('buffers')  execute multiple lines of code??
 -- vim.cmd([[%s/\Vbar/bar/g]])
+--
+--
+---------------------------------------------------------------------------
+--      vim.notify    where does title appear?
+---------------------------------------------------------------------------
+vim.notify(" From vim.notify", vim.log.levels.WARN, {title=" jr notify: "})
+
+---------------------------------------------------------------------------
+--      define global constants,  vim.g.*
+---------------------------------------------------------------------------
+# with cursor on next line,  :.,+3 runs all 4 lines
+vim.g.is_laptop=true
+vim.g.plugin_home=vim.fn.stdpath("data") .. "/site/packer/pack/packer"
+print(vim.inspect(vim.g.is_laptop))
+print(vim.inspect(vim.g.plugin_home))
+
+
+---------------------------------------------------------------------------
+--     vim.api.nvim_echo ..  sort of works 
+---------------------------------------------------------------------------
+
+vim.api.nvim_echo( { {"hi ya", ""} },
+true, 
+{} 
+)
+
+

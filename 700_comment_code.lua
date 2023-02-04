@@ -34,18 +34,33 @@ local win = vim.fn.win_getid()
 print(win)
 
 
---	filename of current buf
+---- filename of current buf-----------------------------
 local name = vim.api.nvim_buf_get_name(0)
 print(name)
+-------------------------------------
 
--- NO
--- local buf_no = vim.api.nvim_buf_get_number()
---print(buf_no)
-
---	but this fails:  related to neovim 0.72 ?  (I can not upgrade - see tech
---	notes)
+--- Given filename, what is filetype? -------
 local ftype = vim.filetype.match({ filename = name })
-print(ftype)
+print(vim.inspect(ftype))
+-------------------------------------
+
+--- now use filetype in  if-then-else to set prefix
+local prefix
+if (ftype == "lua") then
+  prefix = "---"
+  print(prefix)
+  print(" it is lua!")
+else
+  prefix = "#"
+  print(prefix)
+end
+
+--- set comments_border
+local comment_border = prefix .. "------------------------"
+print(comment_border)
+
+
+
 ----------
 --  :luado <lua expr>
 --  USAGE:  set linenr to be line with `lowercase`, then cut&paste to cmd line. 

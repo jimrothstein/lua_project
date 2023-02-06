@@ -12,7 +12,7 @@ end
 
 --	display lines of current buffer
 local buffer_lines = vim.api.nvim_buf_get_lines(0, 1,15, false)
--- alert(buffer_lines)
+alert(buffer_lines)
 
 
 --
@@ -27,11 +27,11 @@ local shift_width = vim.api.nvim_buf_get_option(0, "shiftwidth")
 
 
 local file_name = vim.api.nvim_buf_get_name(0)
--- alert(file_name)
+alert(file_name)
 --
 --
 local buf_num = vim.api.nvim_get_current_buf()
--- alert(vim.inspect(buf_num))
+alert(vim.inspect(buf_num))
 --
 --
 local bufs = vim.api.nvim_list_bufs()

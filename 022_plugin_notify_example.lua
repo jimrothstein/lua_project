@@ -5,7 +5,6 @@
 ------------------------
 --  useful commands
 ------------------------
---	ERROR:   unhappy about module `notify`
 --  To RUN this file
 --  :luafile %
 --

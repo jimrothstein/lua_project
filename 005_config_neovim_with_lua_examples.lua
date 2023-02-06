@@ -1,53 +1,45 @@
-
-
 ------------------------
--- NOTES
+-- Find Documentation?
+--
 ------------------------
--- vim.api.X      search for X in :h api.txt
---   ex:
+-- vim.api.X      
+--
+--  search :h api.txt
+--
+--  ex: X=nvim_set_option_option
 --   vim.api.nvim_set_option('laststatus', 3)              -- set laststatus=3
---   in api.txt search for /nvim_set_option
+--   in api.txt search for `nvim_set_option`
 --
+--
+------------------------
 -- vim.fn.X
---   search :h lua.txt
 --
+--   search :h lua.txt
 --
 ------------------------
 --  useful commands
 ------------------------
 --
--- :7source  will run line 7 of this code (do not prefix with :lua)
+-- Get values of option, then reset it.
+print(vim.api.nvim_get_option('laststatus'))
 vim.o.laststatus = 2
 
------------------------------------
--- name of buffer (= filename?)
-print(vim.api.nvim_buf_get_name(0))
------------------------------------
-
---  THESE statements may be sourced directly, using
---  :.+1,+4source
+-- another way to set option
 vim.api.nvim_set_option('laststatus', 3)              -- set laststatus=3
 print(vim.api.nvim_get_option('laststatus'))
-vim.api.nvim_set_option('laststatus', 2)
-print(vim.api.nvim_get_option('laststatus'))
 
--- default is 0; 9 every autocmd -  BE CAREFUL9 every autocmd -  BE
+-- Print current buffer name (= filename?)
+print(vim.api.nvim_buf_get_name(0))
+
+
+-- verbose: default is 0; 9 every autocmd -  BE CAREFUL9 every autocmd -  BE
+print(vim.api.nvim_get_option('verbose'))
 vim.o.verbose=1
 
---  THESE statements may be sourced directly, using
---  :.+1,+4source
-vim.api.nvim_set_option('laststatus', 3)
-print(vim.api.nvim_get_option('laststatus'))
-vim.api.nvim_set_option('laststatus', 2)
-print(vim.api.nvim_get_option('laststatus'))
-
-
---  print directory
---  :h expand   :echo expand('%')
+--  print directory :h expand   :echo expand('%')
 local cwd = vim.fn.expand('%:h:p')
 print(vim.inspect(cwd))
 
--- :h api.txt
 --
 --  check option
 lua print(vim.inspect(vim.opt.autowrite))

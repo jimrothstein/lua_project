@@ -10,9 +10,9 @@
 --	_G is special table of all globals
 --
 --	EXAMPLE:   true/false is does _G have entry _G['_G']
---	:lua print(_G['_G'] == _G] 
+--	USAGE   :lua print(_G['_G'] == _G] 
 -------------------------------------
-:lua print(_G['_G'] == _G] 
+--- lua print(_G['_G'] == _G] 
 
 
 -------------------------------------
@@ -26,6 +26,9 @@ lua print(jim)
 -- returns true
 lua print(_G['jim'] == jim)
 -------------------------------------
+  --
+--- error
+ if jim == "jim_is_global" then print("yes") end
 --
 --
 --

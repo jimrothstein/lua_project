@@ -3,17 +3,14 @@
 --
 ------------------------
 -- vim.api.X      
---
 --  search :h api.txt
 --
---  ex: X=nvim_set_option_option
+--  EX: X=nvim_set_option
+--
 --   vim.api.nvim_set_option('laststatus', 3)              -- set laststatus=3
 --   in api.txt search for `nvim_set_option`
---
---
 ------------------------
 -- vim.fn.X
---
 --   search :h lua.txt
 --
 ------------------------
@@ -42,10 +39,10 @@ print(vim.inspect(cwd))
 
 --
 --  check option
-lua print(vim.inspect(vim.opt.autowrite))
-lua print(vim.inspect(vim.v.progname))          -- nvim
-lua print(vim.inspect(vim.v.progpath))          -- 
-lua print(vim.inspect(vim.opt.backup))
+--- lua print(vim.inspect(vim.opt.autowrite))
+--- lua print(vim.inspect(vim.v.progname))          -- nvim
+--- lua print(vim.inspect(vim.v.progpath))          -- 
+--- lua print(vim.inspect(vim.opt.backup))
 print(vim.inspect(vim.opt.backup))
 print(vim.opt.backup)
 
@@ -71,6 +68,8 @@ vim.opt.wildignore = {'*/cache/*,*/tmp/*'}
 lua vim.o.laststatus = 2
 lua vim.api.nvim_set_option('laststatus', 2)
 
+--- USAGE:    type :, then full line
+lua print(vim.api.nvim_buf_get_option(0, 'modifiable'))
 
 
 ---------------
@@ -148,3 +147,12 @@ end
 --  name of buffer
 -----------------------------------------------------------------------------
 print(vim.inspect(vim.api.nvim_buf_get_name(0)))
+
+
+--- keymaps
+--- nvim_buf_get_keymap({}, {'n'}), lengthy output
+:lua print(vim.inspect(vim.api.nvim_buf_get_keymap(0, 'n')))
+
+
+nvim_buf_get_keymap()
+Gets a list of buffer-

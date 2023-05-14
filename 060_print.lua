@@ -5,47 +5,55 @@
 --		SIMPLEST
 --		:A,Bsource
 --
-t = {}
-t = {"one", "two"}
+--
+---lua-----
+---lua-----
+--
+local the_comment =
+	"----------------------------------------------------------------------------------------------------------"
+local function separator()
+	local pos = vim.api.nvim_win_get_cursor(0)[2]
+	local line = vim.api.nvim_get_current_line()
+	local nline = line:sub(0, pos) .. the_comment .. line:sub(pos + 1)
+	vim.api.nvim_set_current_line(nline)
+end
+vim.api.nvim_set_keymap("n", "<leader>c", "<cmd>lua separator()<cr>", {})
 
-for _, i in pairs(t) do print(i) end
-------------------------------------
+local t = {}
+local t = { "one", "two" }
 
-t = {}
-t = {A = "one", B = "two"}
+for _, i in pairs(t) do
+	print(i)
+end
 
-for _, i in pairs(t) do print(i) end
 ------------------------------------
 --		NeOVIM way?
 --
 ----
 --
- local hl_normal = vim.pretty_print(vim.api.nvim_get_hl_by_name("Normal", true))
+local hl_normal = vim.print(vim.api.nvim_get_hl_by_name("Normal", true))
 
 -- :4source
-vim.pretty_print("hi")
+vim.print("hi")
 
-
--- :.source	
+-- :.source
 vim.notify("helllllll")
-
 
 -- global function to see table contents
 function _G.put(...)
-  local objects = {}
-  for i = 1, select('#', ...) do
-    local v = select(i, ...)
-    table.insert(objects, vim.inspect(v))
-  end
+	local objects = {}
+	for i = 1, select("#", ...) do
+		local v = select(i, ...)
+		table.insert(objects, vim.inspect(v))
+	end
 
-  print(table.concat(objects, '\n'))
-  return ...
+	print(table.concat(objects, "\n"))
+	return ...
 end
 
--- .source 
+-- .source
 -- or, :lua put(<table>)
-put({1,"one", 2})
-
+put({ 1, "one", 2 })
 
 -- OR ...
 --

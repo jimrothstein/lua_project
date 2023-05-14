@@ -2,8 +2,15 @@
 --	PUROSE:  Random lua practice
 --	TODO:		 Go through and keep useful only.
 --
-# LUA
+-- LUA
 
+--  NOTES  --------------------------------------------------  
+-- This is a .lua file
+-- To source it from .vim:   :luafile <file>
+-- :luafile % will also work.
+ -------------------------------------------------- 
+--
+--  multi lline comment
 --[[
 In lua, nil or false evaluate to:  false
 0 or '', evaluate to: true
@@ -19,12 +26,9 @@ Lua + neovim:
         *  vim.bo[0],buftype=nofile
 --]]
 --
+ -------------------------------------------------- 
 --  These are vim api ,  called by lua
-
--- [[  multi-
--- line
--- comments
--- ]]
+ -------------------------------------------------- 
 
 -- shortcuts:
 local cmd = vim.cmd
@@ -45,6 +49,7 @@ cmd("pwd")   -- execute vim Ex: command
 --lua print(_VERSION)
 -- lua print("hi")
 
+ -------------------------------------------------- 
 -- print, datatypes
 -- Data types are converted correctly
 print(vim.api.nvim_eval('1 + 1')) -- 2
@@ -56,7 +61,9 @@ print(vim.api.nvim_eval('v:null')) -- nil
 
 vim.api.nvim_command('new')
 
--- To run a lua file
+-------------------------------------------------- 
+-- To run a lua files
+-------------------------------------------------- -
 :luafile %
 x = 41
 if x > 40 then
@@ -69,12 +76,10 @@ end
 -- y{motion} will highlight for you!
 -- :au TextYankPost * silent! lua vim.highlight.on_yank() 
 
--- This is a .lua file
--- To source it from .vim:   :luafile <file>
--- :luafile % will also work.
-x = "hello"
-print(x)
 
+--   -------------------------------------------------- 
+--  make a new Scratch buffer
+--   -------------------------------------------------- 
 -- tools.lua
 local api = vim.api
 local M = {}
@@ -85,13 +90,10 @@ end
 return M
 
 
--- in vim
--- create new command (fails)
--- :command! Scratch lua require'0001_tools'.makeScratch()
---
 
-
-
+ -------------------------------------------------- 
+--  options
+--   -------------------------------------------------- 
 -- :lua vim.wo.number = true
 -- vim.api.nvim_set_win_option('number', true)
 -- lua print(vim.wo.number)

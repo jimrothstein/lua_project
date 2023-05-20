@@ -1,21 +1,29 @@
 ------------------------
--- Find Documentation?
---
+-- EXAMPLES:    lua functions
 ------------------------
 -- vim.api.X      
---  search :h api.txt
+--  ==> search :h api.txt, then search X
 --
 --  EX: X=nvim_set_option
---
 --   vim.api.nvim_set_option('laststatus', 3)              -- set laststatus=3
---   in api.txt search for `nvim_set_option`
+--   :h api.txt then search `nvim_set_option`
 ------------------------
 -- vim.fn.X
 --   search :h lua.txt
---
 ------------------------
---  useful commands
+--  EXAMPLES in this file
 ------------------------
+--  vim.api.nvim_get_option()
+--  vim.api.nvim_set_option
+--  vim.api.nvim_buf_get_name
+--  vim.fn.expand('%:h:p')
+--  vim.opt.wildignore = '*/cache/*,*/tmp/*'
+--  vim.fn.has('nvim-0.5')
+--  vim.api.nvim_list_runtime_paths()
+--  (vim.api.nvim_eval('v:true'))
+---------------------------------
+--  TAGS:   vim.api.*, vim.fn.*, if-then, 
+---------------------------------
 --
 -- Get values of option, then reset it.
 print(vim.api.nvim_get_option('laststatus'))
@@ -156,3 +164,4 @@ print(vim.inspect(vim.api.nvim_buf_get_name(0)))
 
 nvim_buf_get_keymap()
 Gets a list of buffer-
+

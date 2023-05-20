@@ -161,7 +161,8 @@ print(vim.inspect(vim.api.nvim_buf_get_name(0)))
 --- nvim_buf_get_keymap({}, {'n'}), lengthy output
 :lua print(vim.inspect(vim.api.nvim_buf_get_keymap(0, 'n')))
 
-
-nvim_buf_get_keymap()
+-- FAILS
+local maps = vim.api.nvim_buf_get_keymap(0, 'n' )
 Gets a list of buffer-
+
 

@@ -23,19 +23,20 @@
 --  :16,19source
 -----------------------------------
 print('hi')
-
+-----------------------------------WORKING
 --	:24,25source  # 1009
 local win = vim.fn.win_getid()
 print(win)
 
-
 --	filename of current buf
 local buf = vim.api.nvim_buf_get_name(0)
 print(buf)
---	but this fails:  related to neovim 0.72 ?  (I can not upgrade - see tech
---	notes)
-local ftype = vim.filetype.match({ buf = 2 })
+
+-- buf=0  is current buf
+local ftype = vim.filetype.match({ buf = 0 })
+print(vim.inspect(ftype))
 print(ftype)
+-----------------------------------
 ----------
 --  :luado <lua expr>
 --  USAGE:  set linenr to be line with `lowercase`, then cut&paste to cmd line. 

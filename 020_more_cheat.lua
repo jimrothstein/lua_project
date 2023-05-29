@@ -10,8 +10,8 @@
 -- :luafile % will also work.
  -------------------------------------------------- 
 --
---  multi lline comment
 --[[
+Multiline comment ...
 In lua, nil or false evaluate to:  false
 0 or '', evaluate to: true
 --]]

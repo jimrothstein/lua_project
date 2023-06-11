@@ -165,4 +165,3 @@ print(vim.inspect(vim.api.nvim_buf_get_name(0)))
 local maps = vim.api.nvim_buf_get_keymap(0, 'n' )
 Gets a list of buffer-
 
-

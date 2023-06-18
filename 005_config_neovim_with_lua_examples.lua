@@ -34,7 +34,7 @@ vim.api.nvim_set_option('laststatus', 3)              -- set laststatus=3
 print(vim.api.nvim_get_option('laststatus'))
 
 -- Print current buffer name (= filename?)
-print(vim.api.nvim_buf_get_name(0))
+print(vim.inspect(vim.api.nvim_buf_get_name(0)))
 
 
 -- verbose: default is 0; 9 every autocmd -  BE CAREFUL9 every autocmd -  BE

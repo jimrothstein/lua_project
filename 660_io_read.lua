@@ -13,4 +13,5 @@ local y = io.read() --
 print(y)
 ----------------------
 -- uggggly !:qa
-io.write(vim.inspect(vim.loop.cpu_info()))
+print(vim.inspect(vim.loop.cpu_info())) -- work
+io.write(vim.inspect(vim.loop.cpu_info())) -- no work

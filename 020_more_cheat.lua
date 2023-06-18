@@ -53,8 +53,10 @@ print(vim.fn.expand('%'))
 vim.api.nvim_command('echo "Hello, Nvim!"')
 
 --  list buffers, vim.cmd is alias for vim.api.nvim_exec()
-vim.cmd('buffers') 
-vim.api.nvim_exec('buffers')   -- TODO not working
+vim.cmd('buffers')   -- works
+vim.api.nvim_exec('buffers')
+print(vim.inspect(vim.api.nvim_exec('buffers')))   
+
 
 -- print
 print(_VERSION)

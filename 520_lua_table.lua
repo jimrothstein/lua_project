@@ -10,10 +10,9 @@
 --	Chapter 19
 --	USAGE:		:luafile %
 --
-		a = {10, 20, 30}
-	  table.insert(a, 1, 15)
+a = { 10, 20, 30 }
+table.insert(a, 1, 15)
 --	  unpack(a)
-
 
 --	USAGE:  source all lines in blcok (including bracker)
 --	:a,bsource
@@ -29,8 +28,8 @@ print(#colors)
 
 --	if done separately, ERROR says colors is nil
 --	#colors returns length (actual index of last element)
+local colors = { "red", "green", "blue" }
 io.write("Number of Items : ", #colors, "\n")
-
 
 --	USAGE:  source entire block:
 --	:a,bsource

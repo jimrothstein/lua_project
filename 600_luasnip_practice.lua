@@ -41,7 +41,11 @@ local choice = ls.choice_node
 local dynamicn = ls.dynamic_node
 
 local test1 = function()
-	return { os.date("%Y-%m-%d") }
+	return { os.date("%d-%B-%Y") }
+end
+
+local filename = function()
+	return { vim.fn.expand("%:p") }
 end
 
 ls.add_snippets("all", {
@@ -62,7 +66,12 @@ ls.add_snippets("all", {
 	}, {
 		func(test1, {}),
 	}),
-
+	s({
+		trig = "triggerA",
+		dscr = "triggerA",
+	}, {
+		t("Wow"),
+	}),
 	--- snip: squote
 	s({ trig = "squote", dscr = "Single quotes" }, {
 		t("'"),
@@ -76,5 +85,8 @@ ls.add_snippets("all", {
 		i(1),
 		t("`"),
 		i(0),
+	}),
+	s({ trig = "file", dscr = "insert filename" }, {
+		func(filename, {}),
 	}),
 })

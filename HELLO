@@ -10,9 +10,8 @@
 local function make2()
 	nvim.api.nvim_command("enew")
 end
-make2()
 
-vim.api.nvim_buf_set_name(0, "my special buffer")
+make2()
 
 -------------------------------
 local api = vim.api

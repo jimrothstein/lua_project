@@ -8,8 +8,6 @@
 --  :lua print(_VERSION)
 --
 --
---
---
 -----------------------
 --  SIMPLE LUA FUNCTION
 -----------------------
@@ -98,3 +96,7 @@ print(vim.inspect(events))
 one
 tow
 
+ -------------------------------------------------
+-- set buffer name (works)
+ -------------------------------------------------
+vim.api.nvim_buf_set_name(0, "my special buffer")

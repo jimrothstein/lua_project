@@ -177,4 +177,14 @@ true,
 {} 
 )
 
+--[[ from luaref. (:h os.getenv)
+
+os.getenv({varname})                                               *os.getenv()*
+        Returns the value of the process environment variable {varname}, or
+        `nil` if the variable is not defined.
+
+]]
+
+print(os.getenv("HOME"))
+
 

@@ -21,8 +21,7 @@ local f = function(a, b)
 end
 
 f(1, 2)
-f(1)(
-[[--
+f(1)([[--
 local M = {}
 
 function M.sayHello() 
@@ -82,7 +81,7 @@ print(vim.api.nvim_eval("v:null")) -- nil
                                        true)
 --]]
 --
-events = {}
+local events = {}
 vim.api.nvim_buf_attach(0, false, {
 	on_lines = function()
 		table.insert(events)
@@ -93,4 +92,4 @@ print(vim.inspect(events))
 -------------------------------------------------
 -- set buffer name (works)
 -------------------------------------------------
-vim.api.nvim_buf_set_name(0, "my special buffer")
+-- :lua vim.api.nvim_buf_set_name(0, "my special buffer")

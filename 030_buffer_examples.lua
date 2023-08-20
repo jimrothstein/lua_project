@@ -24,6 +24,8 @@ print(vim.inspect(mark_pos))
 
 local lines = vim.api.nvim_buf_get_lines(0, 1, 9, false)
 
+--[[
 --- fold methods
 :lua print(vim.o.foldmethod)
 :lua print(vim.opt.foldmethod:get())
+--]]

@@ -2,9 +2,10 @@
 
 --  TODO
 -- 2023-05-21
---  sumneko_lua is deprecated; use lua_??
+--  sumneko_lua is deprecated; use lua_ls??
 
-require("lspconfig").sumneko_lua.setup({
+-- require("lspconfig").sumneko_lua.setup({
+require("lspconfig").lua_ls.setup({
 	settings = {
 		Lua = {
 			diagnostics = {

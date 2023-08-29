@@ -5,8 +5,6 @@
 --  :luafile %
 --
 --  :lua print(_VERSION)
---
---
 -----------------------
 --  SIMPLE LUA FUNCTION
 -----------------------
@@ -21,8 +19,7 @@ local f = function(a, b)
 end
 
 f(1, 2)
-f(1)(
-[[--
+f(1)([[--
 local M = {}
 
 function M.sayHello() 
@@ -39,8 +36,6 @@ local g = function(opts)
 	local y = opts.filename
 	print(y)
 end
-
-g({ bar = true, filename = "somefile" })
 
 g({ bar = true, filename = "somefile" })
 
@@ -82,15 +77,10 @@ print(vim.api.nvim_eval("v:null")) -- nil
                                        true)
 --]]
 --
-events = {}
+local events = {}
 vim.api.nvim_buf_attach(0, false, {
 	on_lines = function()
 		table.insert(events)
 	end,
 })
 print(vim.inspect(events))
-
--------------------------------------------------
--- set buffer name (works)
--------------------------------------------------
-vim.api.nvim_buf_set_name(0, "my special buffer")

@@ -1,19 +1,10 @@
---
 -- 100_module_Scratch.lua
 --
--- 23-July-2023 - code expects to be in  nvim/lua/tools.lua
 --
--- 14JAN 2022  - NOT WORKING
+--  PURPOSE:   Create simple module; run it from commnd line
+--
 -- REF:  https://teukka.tech/luanvim.html
--- scratch buffer
 --
-local function make2()
-	nvim.api.nvim_command("enew")
-end
-make2()
-
-vim.api.nvim_buf_set_name(0, "my special buffer")
-
 -------------------------------
 local api = vim.api
 local M = {}
@@ -21,18 +12,22 @@ local M = {}
 -- new buffer
 function M.makeScratch()
 	api.nvim_command("enew") -- :enew
-	vim.bo[0].buftype = nofile -- set the current buffer's (buffer 0) buftype to nofile
-	vim.bo[0].bufhidden = hide
+	vim.bo[0].buftype = "nofile" -- set the current buffer's (buffer 0) buftype to nofile
 	vim.bo[0].swapfile = false
+	-- vim.bo[0].bufhidden = hide
+	api.nvim_buf_set_name(0, "a fresh buffer")
+end
+
+function M.addText()
+	local value = "hello world"
+	vim.api.nvim_buf_set_lines(0, 0, 0, false, value)
 end
 return M
 
---  To run:
---
--- :command! Scratch lua
--- require'~/code/lua_project/0002_tools.lua'makeScratch()
+--  To run: (these are vim commands)
 ----------------------------------------------------------
---
+-- :command! Scratch lua require'100_module_Scratch'.makeScratch()
 -- :Scratch
---
 ----------------------------------------------------------
+-- Notes:   remove the buffer?    :bd
+-- Be sure to exit nvim to reload

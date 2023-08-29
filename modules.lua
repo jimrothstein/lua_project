@@ -10,39 +10,39 @@
 local mymodule = {}
 
 function mymodule.foo()
-    print("Hello World!")
+	print("Hello World!")
 end
 
 function mymodule.func_opts(opts)
-    local x = opts.x
-    local y = opts.y
-    print(y)
-    print(opts.y)
+	local x = opts.x
+	local y = opts.y
+	print(y)
+	print(opts.y)
 end
 
-
-function mymodule.sayHello() 
-    print("say hello from M.sayHello ")
+function mymodule.sayHello()
+	print("say hello from M.sayHello ")
 end
 
 function mymodule.some_info()
-    print(vim.inspect(vim.opt.formatoptions:get()))
-    print(vim.bo.comments)
+	print(vim.inspect(vim.opt.formatoptions:get()))
+	print(vim.bo.comments)
 end
-
-
-
 
 return mymodule
 
-
 --  TO RUN:
---  start lua at cli
---  mymodule = require 'module'   (do not use extension)
+--  start lua at cli    (>lua)
+--  x = require('modules')
+--  x.foo()
+--
+--  OR
+--  :lua mymodule = require'modules' and then
+--  :lua mymodule.foo()
+--
+--
+--
+--  mymodule = require 'modules'   (do not use extension)
 --  mymodule.foo()
 --
 --
---------------------
--- global function
-------------------
--- clueless

@@ -85,8 +85,3 @@ vim.api.nvim_buf_attach(0, false, {
 })
 print(vim.inspect(events))
 
-local f = function()
-        vim.api.nvim_set_hl(0, 'CursorLine', { underline = true }) 
-end
-
-f()

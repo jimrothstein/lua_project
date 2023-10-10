@@ -1,4 +1,4 @@
-
+-- PURPOSE:	Lua `patterns` examples, introduction
 
  ---------------------------------------------------------------
 -- TEST HERE FIRST:   https://gitspartv.github.io/lua-patterns/
